@@ -1,0 +1,227 @@
+@charset "UTF-8";
+.form-wrapper {
+	width: 400px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px;
+}
+.chart-wrapper {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px;
+}
+
+.form-wrapper h1 {
+	color: #004488;
+	font-size: 24px;
+	padding: 0px;
+	text-shadow: #ccffff 0px 2px 1px;
+	display:block;
+	float: left;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
+.form-wrapper h2 {
+	font-size: 14px;
+	color: #004488;
+	font-weight: normal;
+	clear: left;
+	padding: 0px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+}
+.form-wrapper h3 {
+	font-size: 14px;
+	color: #000000;
+	font-weight: normal;
+	clear: left;
+	padding: 0px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+}
+.form-wrapper .close {
+	display: block;
+	float: right;
+}
+.form-container {
+	display: block;
+	border: 1px solid #C1C1C1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #EAEAEA;
+	padding: 10px;
+	font-size: 12px;
+	color: #666666;
+	text-shadow: #FFF 0px 2px 1px;
+}
+.form-container-green {
+	display: block;
+	border: 1px solid #78C685;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #B1FFBF;
+	padding: 10px;
+	font-size: 12px;
+	color: #006600;
+	text-shadow: #FFF 0px 2px 1px;
+}
+.form-container-red {
+	display: block;
+	border: 1px solid #EF9D9C;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #FBE6E6;
+	padding: 10px;
+	font-size: 12px;
+	color: #CC0000;
+	text-shadow: #FFF 0px 2px 1px;
+}
+.line {
+	display: block;
+	height: 2px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.warning {
+	font-size: 14px;
+	font-weight: bold;
+	color: #CC0000;
+	text-transform: uppercase;
+	text-shadow: #FFF 0px 2px 1px;
+}
+.good {
+	font-size: 14px;
+	font-weight: bold;
+	color: #006600;
+	text-transform: uppercase;
+	text-shadow: #FFF 0px 2px 1px;
+}
+a.form-button {
+	/* Sliding right image */
+    background: transparent url('../images/form-button-right.gif') no-repeat scroll top right;
+	display: block;
+	float: right;
+	height: 40px; /* CHANGE THIS VALUE ACCORDING TO IMAGE HEIGHT */
+	margin-right: 10px;
+	padding-right: 10px; /* CHENGE THIS VALUE ACCORDING TO RIGHT IMAGE WIDTH */
+	margin-top:20px;
+	/* FONT PROPERTIES */
+text-decoration: none;
+	color: #CCFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	letter-spacing:1px;
+	text-transform: uppercase;
+	text-shadow: #000 0px 2px 1px;
+	
+}
+a.form-button span {
+	/* Background left image */ 
+background: transparent url('../images/form-button-left.gif') no-repeat;
+	display: block;
+	height:28px;
+	padding-top: 12px;
+	padding-right: 0;
+	padding-left: 10px;
+}
+
+a.form-button:hover span {
+color:#FFFFFF;
+text-decoration:none;
+}
+.clear {
+	clear: both;
+}
+.form-container-green h3 {
+	font-size: 24px;
+	color: #006600;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	text-shadow: #FFF 0px 2px 1px;
+}
+.form-container-red h3 {
+	font-size: 24px;
+	color: #CC0000;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	text-shadow: #FFF 0px 2px 1px;
+}
+.form-container #textfield {
+	height: 22px;
+	border: 1px solid #C1C1C1;
+	background-position: center;
+	font-size: 12px;
+	color: #000000;
+	vertical-align: text-bottom;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+}
+.chart-flash {
+	display: block;
+	float: left;
+}
+.chart-info {
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
+.chart-info .icon {
+	float: left;
+	margin-right: 5px;
+}
+.chart-info .text {
+	float: left;
+}
+.text .top {
+	font-size: 12px;
+	color: #333333;
+}
+.text .bottom {
+	font-size: 15px;
+	color: #000000;
+	display: block;
+	font-weight: bold;
+}
+.form-container-green h4 {
+	font-size: 18px;
+	margin: 0px;
+	padding: 0px;
+}
+.form-wide {
+	text-align: left;
+	padding: 4px;
+}
+.form-left {
+	float: left;
+	padding: 4px;
+}
+.form-right {
+	float: right;
+	padding: 4px;
+}
+.form-right-text {
+	float: right;
+	padding-top: 10px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 4px;
+}
+.form-left-text {
+	float: left;
+	padding-top: 10px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 4px;
+}

@@ -1,0 +1,11 @@
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+	<service>
+		<name>DataService</name>
+		<serviceClass>com.cleartraders.ws.IDataService</serviceClass>
+		<implementationClass>
+			com.cleartraders.ws.DataServiceImpl
+		</implementationClass>
+		<style>wrapped</style>
+		<use>literal</use>
+		<scope>application</scope>
+	</service></beans>

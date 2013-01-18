@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="adminLoginForm" type="com.cleartraders.webadmin.controller.form.AdminLoginForm" />
+    <form-bean name="searchMemberForm" type="com.cleartraders.webadmin.controller.form.SearchMemberForm" />
+    <form-bean name="memberDetailsForm" type="com.cleartraders.webadmin.controller.form.MemberDetailsForm" />
+    <form-bean name="productPlanDetailsForm" type="com.cleartraders.webadmin.controller.form.ProductPlanDetailsForm" />
+    <form-bean name="SMSPackageForm" type="com.cleartraders.webadmin.controller.form.SMSPackageForm" />
+    <form-bean name="sortMemberForm" type="com.cleartraders.webadmin.controller.form.SortMemberForm" />
+    <form-bean name="deleteMemberForm" type="com.cleartraders.webadmin.controller.form.DeleteMemberForm" />
+    <form-bean name="resetMemberPWDForm" type="com.cleartraders.webadmin.controller.form.ResetMemberPWDForm" />
+    <form-bean name="StrategyForm" type="com.cleartraders.webadmin.controller.form.StrategyForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards>
+  	<forward name="logoff" path="/logout/userLogoff.do"></forward>
+  	<forward name="getMembers" path="/members/getMembers.do"></forward>
+  	<forward name="getProductPlans" path="/productPlans/getProductPlans.do"></forward>
+  	<forward name="getSMSCredits" path="/smscredits/getSMSCredits.do"></forward>
+  	<forward name="getStrategies" path="/strategy/getStrategies.do"></forward>
+  </global-forwards>
+  <action-mappings >
+  	<action path="/smscredits/deleteSMSPackageByID" type="com.cleartraders.webadmin.controller.action.DeleteSMSPackageByID">
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+      <forward name="successful" path="/smscredits/smscredits.jsp" />
+    </action> 
+  	<action path="/members/getMemberByID" type="com.cleartraders.webadmin.controller.action.GetMemberByIDAction">
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+      <forward name="successful" path="/members/members.jsp" />
+    </action> 
+    <action path="/productplans/getProductPlanByID" type="com.cleartraders.webadmin.controller.action.GetProductPlanByIDAction">
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+      <forward name="successful" path="/productplans/productplans.jsp" />
+    </action> 
+  	<action 
+      path="/members/getMembers"
+      type="com.cleartraders.webadmin.controller.action.GetMembersAction">
+      <forward name="successful" path="/members/members.jsp" />
+      <forward name="failed" path="/login/adminLogin.jsp" />
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+    </action>
+    <action 
+      path="/productPlans/getProductPlans"
+      type="com.cleartraders.webadmin.controller.action.GetProductPlansAction">
+      <forward name="successful" path="/productplans/productplans.jsp" />
+      <forward name="failed" path="/login/adminLogin.jsp" />
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+    </action>
+    
+    <action path="/strategy/getStrategyByID" type="com.cleartraders.webadmin.controller.action.GetStrategyByIDAction">
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+      <forward name="successful" path="/strategy/strategy.jsp" />
+    </action> 
+    
+    <action 
+      path="/strategy/getStrategies"
+      type="com.cleartraders.webadmin.controller.action.GetStrategiesAction">
+      <forward name="successful" path="/strategy/strategy.jsp" />
+      <forward name="failed" path="/login/adminLogin.jsp" />
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+    </action> 
+    
+    <action 
+      path="/smscredits/getSMSCredits"
+      type="com.cleartraders.webadmin.controller.action.GetSMSCreditsAction">
+      <forward name="successful" path="/smscredits/smscredits.jsp" />
+      <forward name="failed" path="/login/adminLogin.jsp" />
+      <forward name="sessionended" path="/login/adminLogin.jsp" />
+    </action>    
+  	<action 
+      path="/logout/userLogoff"
+      type="com.cleartraders.webadmin.controller.action.AdminLogoffAction">
+      <forward name="successful" path="/logout/logoffCache.jsp" />
+    </action>
+    <action
+      attribute="adminLoginForm"
+      input="/login/adminLogin.jsp"
+      name="adminLoginForm"
+      path="/login/adminLogin"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.AdminLoginAction">
+      <forward name="failed" path="/login/adminLogin.jsp" />
+      <forward name="successful" path="/members/members.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+    </action>
+    <action
+      attribute="searchMemberForm"
+      input="/members/members.jsp"
+      name="searchMemberForm"
+      path="/member/searchMember"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.SearchMemberAction">
+      <forward name="failed" path="/members/members.jsp" />
+      <forward name="successful" path="/members/members.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+     </action>
+    <action
+      attribute="memberDetailsForm"
+      input="/members/members.jsp"
+      name="memberDetailsForm"
+      path="/members/addOrUpdateMemberDetails"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.AddOrUpdateMemberDetailsAction" >
+      <forward name="failed" path="/members/members.jsp" />
+      <forward name="successful" path="/members/members.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+     </action>
+    <action
+      attribute="productPlanDetailsForm"
+      input="/productplans/productplans.jsp"
+      name="productPlanDetailsForm"
+      path="/productplans/addOrUpdateProductPlanDetails"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.AddOrUpdateProductPlanDetailsAction">
+      <forward name="failed" path="/productplans/productplans.jsp" />
+      <forward name="successful" path="/productplans/productplans.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+     </action>
+    <action
+      attribute="SMSPackageForm"
+      input="/smscredits/smscredits.jsp"
+      name="SMSPackageForm"
+      path="/smscredits/saveSMSPackage"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.SaveSMSPackageAction">
+      <forward name="failed" path="/smscredits/smscredits.jsp" />
+      <forward name="successful" path="/smscredits/smscredits.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+     </action>
+    <action
+      attribute="sortMemberForm"
+      input="/members/members.jsp"
+      name="sortMemberForm"
+      path="/members/sortMember"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.SortMemberAction">
+      <forward name="failed" path="/members/members.jsp" />
+      <forward name="successful" path="/members/members.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+     </action>
+    <action
+      attribute="deleteMemberForm"
+      input="/members/members.jsp"
+      name="deleteMemberForm"
+      path="/members/deleteMember"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.DeleteMemberAction">
+      <forward name="failed" path="/members/members.jsp" />
+      <forward name="successful" path="/members/members.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+     </action>
+    <action
+      attribute="resetMemberPWDForm"
+      input="/members/members.jsp"
+      name="resetMemberPWDForm"
+      path="/members/resetMemberPWD"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.ResetMemberPWDAction">
+      <forward name="failed" path="/members/members.jsp" />
+      <forward name="successful" path="/members/members.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+    </action>
+    <action
+      attribute="AddOrUpdateStrategyForm"
+      input="/strategy/strategy.jsp"
+      name="StrategyForm"
+      path="/strategy/addOrUpdateStrategy"
+      scope="request"
+      type="com.cleartraders.webadmin.controller.action.AddOrUpdateStrategyAction" >
+      <forward name="failed" path="/strategy/strategy.jsp" />
+      <forward name="successful" path="/strategy/strategy.jsp" />
+      <forward name="sessionended" path= "/login/adminLogin.jsp" />
+    </action>
+  </action-mappings>
+
+  <message-resources parameter="com.cleartraders.webadmin.controller.ApplicationResources" />
+</struts-config>
+

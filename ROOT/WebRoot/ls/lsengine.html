@@ -1,0 +1,111 @@
+<!--
+  -- LIGHTSTREAMER - www.lightstreamer.com
+  -- Web Client - lsengine.html - Version 4 Revision: 37 $
+  -- Copyright (c) 2004-2007 Weswit Srl. All Rights Reserved.
+  -->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Lightstreamer</title>
+<script language="JavaScript" src="lscommons.js"></script>
+<script language="JavaScript" src="lsengine.js?1328"></script>
+
+<script language="JavaScript">
+	function LS_extractParam(name) {
+		var pattern = new RegExp("[?&]" + name + "=[^&]*");
+		var result = pattern.exec(location.search);
+		if (result && result[0]) {
+			var prefLen = name.length + 2;
+			return unescape(result[0].substring(prefLen));
+		} else {
+			return null;
+		}
+	}
+
+	var LS_build = "1328";	
+
+	var LS_remoteDebug = LS_extractParam("remoteDebug");
+	if (LS_remoteDebug == null) {
+		LS_remoteDebug = true;
+	} else {
+		LS_remoteDebug = (LS_remoteDebug == "true");
+	}
+	
+	var LS_debugAlerts = LS_extractParam("debugAlerts");
+	if (LS_debugAlerts == null) {
+		LS_debugAlerts = true;
+	} else {
+		LS_debugAlerts = (LS_debugAlerts == "true");
+	}
+	
+	// the engineName parameter must be an alphanumeric string
+	var LS_engineName = LS_extractParam("engineName");
+	if (LS_engineName != null) {
+		var alphanumeric = new RegExp("^[a-zA-Z0-9]*$"); 
+		if (!alphanumeric.test(LS_engineName)) {
+			LS_engineName = null;
+		}
+	}
+	
+	// the domain parameter must be an alphanumeric string with . and -
+	var LS_domain = LS_extractParam("domain");
+	if (LS_domain != null) {
+		var alphanumeric = new RegExp("^[a-zA-Z0-9\\.\\-]*$"); 
+		if (!alphanumeric.test(LS_domain)) {
+			LS_domain = null;
+		}
+	}
+
+	if (LS_domain == null && LS_engineName == null) {
+		// ./lsengine_config.js is used, if supplied
+		// deprecated; just for backward compatibility
+		var LS_configIncl = '<script language="JavaScript" src="lsengine_config.js"><' + '/script>';
+		document.writeln(LS_configIncl);
+	}
+</script>
+
+<script language="JavaScript">
+	var LS_configPath = null;
+	if (LS_isEngineConfigured()) {
+		// ./lsengine_config.js is indeed supplied
+		// deprecated; just for backward compatibility
+		LS_configPath = "lsengine_config.js";
+	} else {
+		// Push-page managed version
+		var LS_engine = new LightstreamerEngine();
+		LS_engine.context.setDebugAlertsOnClientError(LS_debugAlerts);
+		LS_engine.context.setRemoteAlertsOnClientError(LS_remoteDebug);
+		LS_engine.context.setDomain(LS_domain);
+		if (LS_engineName != null) {
+			LS_engine.setEngineName(LS_engineName);
+		}
+		LS_engine.changeStatus("DISCONNECTED");
+		LS_engine.bind(true);	// the argument for bind is reserved
+	}
+
+</script>
+</head>
+
+<script language="JavaScript">
+ var LS_formUrl = "lsform.html";
+ var LS_blankUrl = "lsblank.html";
+ var LS_domain = LS_getConfiguredDomain();
+ if (LS_domain != null) {
+  LS_formUrl += "?" + LS_domain;
+  LS_blankUrl += "?" + LS_domain;
+ }
+ var LS_engineName = LS_getConfiguredEngineName(LS_configPath);
+
+ document.writeln('<frameset rows="0,0,0,0,0,0" onLoad="LS_onld()" onUnload="LS_onunld()" border="0" frameborder="0" framespacing="0">');
+ document.writeln('<frame name="LS__' + LS_engineName + '" src="'+LS_blankUrl+'" border="0" frameborder="0" marginwidth="0" marginheight="0" noresize scrolling="no">');
+ document.writeln('<frame name="LS_PUSHFRAME" src="'+LS_blankUrl+'" border="0" frameborder="0" marginwidth="0" marginheight="0" noresize scrolling="no">');
+ document.writeln('<frame name="LS_POLLFRAME" src="'+LS_blankUrl+'" border="0" frameborder="0" marginwidth="0" marginheight="0" noresize scrolling="no">');
+ document.writeln('<frame name="LS_FORMFRAME" src="' + LS_formUrl + '" border="0" frameborder="0" marginwidth="0" marginheight="0" noresize scrolling="no">');
+ document.writeln('<frame name="LS_CONTROLFRAME" src="'+LS_blankUrl+'" border="0" frameborder="0" marginwidth="0" marginheight="0" noresize scrolling="no">');
+ document.writeln('<frame name="LS_AJAXFRAME" src="'+LS_blankUrl+'" border="0" frameborder="0" marginwidth="0" marginheight="0" noresize scrolling="no">');
+ document.writeln('<noframes><body>Frame support is required to enable the push functionalities provided by <a href="www.lightstreamer.com">Lightstreamer<a>.</body></noframes>');
+ document.writeln('</frameset>');
+</script>
+
+</html>

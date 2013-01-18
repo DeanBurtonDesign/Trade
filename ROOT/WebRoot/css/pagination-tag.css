@@ -1,0 +1,31 @@
+table.page {
+	width:100%;
+	float:left;
+	height:41px;
+	background:url(../images/tbg4.jpg) repeat-x;
+}
+
+th, td {
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+	vertical-align: top;
+}
+thead tr{
+  background-color: #fc0;
+}
+
+tr.odd {
+  background-color: #fff
+}
+tr.tableRowEven, tr.even {
+  background-color: #fea
+}
+a {
+	color: #000;
+	text-decoration:none;
+}
+
+a:hover {
+	color: #f00;
+	text-decoration:none;
+}

@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Jun 08 21:31:02 ACT 2009
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=cleartraders.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<po|Cleartraders>~test/;<po|Cleartraders>~org/;<po|Cleartraders>~com/~iqfeed/;<po|Cleartraders>~com/~cleartraders/~webapp/;<po|Cleartraders>~com/~cleartraders/~jsmessager/~vssver2.scc;<po|Cleartraders>~com/~cleartraders/~datafeed/;<po|Cleartraders>~com/~cleartraders/~common/;<jar|activation.jar>;<jar|javax.servlet.jar>;<jar|javax.servlet.jsp.jar>;<jar|jboss-j2ee.jar>;<jar|jboss-jaxrpc.jar>;<jar|jboss-jsr77.jar>;<jar|jboss-saaj.jar>;<jar|mail.jar>;<jar|namespace.jar>;<jar|xml-apis.jar>;<jar|antlr.jar>;<jar|commons-beanutils.jar>;<jar|commons-digester.jar>;<jar|commons-fileupload.jar>;<jar|commons-lang-2.0.jar>;<jar|commons-logging.jar>;<jar|commons-validator.jar>;<jar|jakarta-oro.jar>;<jar|ls-adapter-interface.jar>;<jar|pagination-tag-3.0.jar>;<jar|servlet.jar>;<jar|struts.jar>;<jar|activation-1.1.jar>;<jar|activemq-camel-5.2.0.jar>;<jar|activemq-console-5.2.0.jar>;<jar|activemq-core-5.2.0.jar>;<jar|activemq-jaas-5.2.0.jar>;<jar|activemq-web-5.2.0.jar>;<jar|camel-core-1.5.0.jar>;<jar|camel-jetty-1.5.0.jar>;<jar|camel-jms-1.5.0.jar>;<jar|camel-spring-1.5.0.jar>;<jar|commons-logging-1.1.jar>;<jar|geronimo-j2ee-management_1.0_spec-1.0.jar>;<jar|geronimo-jms_1.1_spec-1.1.1.jar>;<jar|geronimo-jta_1.0.1B_spec-1.0.1.jar>;<jar|jaxb-api-2.0.jar>;<jar|jaxb-impl-2.0.3.jar>;<jar|stax-1.2.0.jar>;<jar|stax-api-1.0.jar>;<jar|log4j-1.2.14.jar>;<jar|junit-4.1.jar>;<jar|mysql-connector-java-5.1.6-bin.jar>;<jar|commons-collections-3.1.jar>;<jar|strutstest-2.1.4.jar>;<jar|commons-beanutils-1.6.1.jar>;<jar|mail-1.4.jar>
+includes=

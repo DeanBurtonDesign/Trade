@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0px auto;
+	padding:0;
+}
+ul, li ,p{
+	margin:0;
+	padding:0;
+	float:left;
+}
+li {
+	list-style:none;
+}
+.popwin{
+	width:646px;
+}
+#topTitle{
+	width:646px;
+	height:16px;
+	line-height:16px;
+	padding-left:20px;
+	margin-top:10px;
+	margin-bottom:2px;
+	text-align:left;
+	
+	font-family:Arial;
+	font-size:9pt;
+	color:#29abe2;
+	font-weight:bold;
+}
+.tablebg{
+	float:left;
+	width:636px;
+	margin-left:5px;
+	margin-right:5px;
+	background:#F9FCFD;
+	border-top:1px solid #DCF1FA;
+	border-bottom:1px solid #DCF1FA;
+	padding-left:15px;
+}
+.tableLine{
+	width:207px;
+	float:left;
+}
+.tableLine ul{
+	width: 100%;
+	height:40px;
+	line-height:40px;	
+}
+
+.tableLine ul li{
+	font-family:Arial;
+	font-size:9pt;
+	color:#9E9FA1;
+	text-align:left;
+	padding-left:3px;
+}
+.tableLine .checked li{
+	font-weight:bold;
+}
+.tableLine ul li img{
+	margin:10px 1px 4px 1px;
+}
+.btClock{
+	cursor:pointer;
+}
+#popmenu{
+	width:80px;
+
+	border:1px #9A9A9A solid;
+	background:#F9FCFD;
+	position:absolute;
+	z-index:999;
+}
+#popmenu ul{
+	width:100%;
+	font-size:12px;
+}
+
+#popmenu ul li{
+	font-size:9pt;
+	font-family:Arial;
+	text-align:center;
+	line-height:20px;
+	height:20px;
+	color:#9E9FA1;
+	width:100%;
+	float:left;
+	border-bottom:#cfd3d4 solid 1px;
+	cursor:pointer;
+}
+#popmenu 	ul	li.nobd	{
+	border-bottom:none;
+}
+#popmenu ul li a{
+	width:100%;
+	height:20px;	
+	text-decoration:none;
+	display:block;
+	background:#FFFFFF;
+	color:#9E9FA1;
+}
+#popmenu ul li a:hover ,#popmenu ul li a.over{
+	width:100%;
+	height:20px;	
+	text-decoration:none;
+	display:block;
+	background:#2AABE4;
+	color:#FFFFFF;
+}
+
+.bottom_bar{
+	width:646px;
+	text-align:right;
+	padding-right:15px;
+	padding-top:15px;
+}

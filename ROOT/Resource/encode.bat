@@ -1,0 +1,1 @@
+C:\Java\jdk1.5.0_06\bin\native2ascii.exe -encoding gb2312 CN_ApplicationResources.properties ApplicationResources_zh_CN.properties 

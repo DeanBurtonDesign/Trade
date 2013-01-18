@@ -1,0 +1,224 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+img {
+	azimuth: expression(
+	this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+	this.src = "../../images/login-transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+	this.runtimeStyle.backgroundImage = "none")),this.pngSet=true);
+}
+
+body{
+	width:100%;
+	background-color:#027DC0;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+.errorinfo{
+	color:#ff0000;
+	font-weight:bold;
+	font-family:Arial;
+	font-size:9pt;
+	margin-left:25px;
+	line-height:0;
+}
+
+.errorinfo-active{
+	color:#ff0000;
+	font-weight:bold;
+	font-family:Arial;
+	font-size:9pt;
+	margin-left:25px;
+}
+
+.promptinfo{
+	color:#00A320;
+	font-weight:bold;
+	font-family:Arial;
+	font-size:9pt;
+	line-height:0;
+}
+
+.promptinfo-active{
+	color:#00A320;
+	font-weight:bold;
+	font-family:Arial;
+	font-size:9pt;
+}
+.container{
+	margin-left:-178px;
+	margin-top:-168px;
+	position: absolute;
+	width:346px;
+	height:345px;
+	top:50%;
+	left:50%;
+	background:url(../images/login-bg.jpg) no-repeat;
+}
+.head{
+	padding-top:15px;
+}
+.main{
+	float:left;
+	margin-left:32px;
+	_margin-left:16px; 
+	width:280px;
+	height:170px;
+	background-color:#FFFFFF;
+	border:1px solid #F2F4F5;
+	text-align:left;
+}
+.main p{
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	line-height:20pt;
+	padding-left:20px;
+}
+.main p span{
+	color:#57A9EB;
+	display:inline-block;
+	width:80px;
+}
+#tick{
+	font-size:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:10px;
+	color:#666666;
+	font-family:Arial;
+	height:40px;
+}
+#tick span{
+	width:20px;
+	height:20px;
+	padding-top:5px;
+	float:left;
+	display:inline-block;
+}
+#tc{
+	height:100px;
+	font-family:Arial;
+	font-size:10px;
+	color:#666666;
+	text-align:left;
+	margin-left:52px;
+	_margin-left:26px;
+	float:left;
+}
+#tc p{
+	padding-top:20px;
+	_padding-top:15px;
+}
+#tc p span{
+	display:inline-block;
+	float:left;
+	padding-top:10px;
+}
+img{
+	cursor:pointer;
+}
+a{
+	color:#57A9EB;
+}
+
+.context{
+	float:left;
+	margin-left:32px;
+	_margin-left: 16px; 
+	width:280px;
+	background-color:#FFFFFF;
+	border:1px solid #F2F4F5;
+	text-align:center;
+}
+.ct_h{
+	text-align:left;
+	width:260px;
+	padding-left:10px;
+	_padding-left:5px;
+	padding-bottom:20px;
+	_padding-bottom:20px;
+	padding-top:10px;
+	_padding-top:10px;
+	line-height:12pt;
+	_line-height:12pt;
+	margin-left:auto;
+	margin-right:auto;
+	border-bottom:1px solid #007EBF;
+}
+.ct_c{
+	text-align:left;
+	width:260px;
+	padding-left:10px;
+	_padding-left:5px;
+	padding-bottom:18px;
+	_padding-bottom:18px;
+	padding-top:10px;
+	_padding-top:10px;
+	line-height:12pt;
+	_line-height:12pt;
+	margin-left:auto;
+	margin-right:auto;
+}
+.ct_h_c{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	color:#000000;
+}
+.ct_h_a{
+	font-family:Arial;
+	font-size:14px;
+	color:#007ebf;
+	font-weight:bold;
+}
+.ct_c_a{
+	font-family:Arial;
+	font-size:12px;
+	color:#878787;
+	font-weight:bold;
+}
+.ct_c_a2{
+	font-family:Arial;
+	font-size:12px;
+	color:#878787;
+	line-height:12pt;
+	_line-height:12pt;
+}
+.ct_e{
+	border-bottom:1px solid #007EBF;
+}
+.ct_h_e{
+	font-family:Arial;
+	font-size:24px;
+	color:#12b218;
+	font-weight:bold;
+}
+.ct_p{
+	text-align:left;
+	width:260px;
+	padding-left:10px;
+	_padding-left:5px;
+	padding-bottom:16px;
+	_padding-bottom:13px;
+	padding-top:10px;
+	_padding-top:10px;
+	line-height:12pt;
+	_line-height:12pt;
+	margin-left:auto;
+	margin-right:auto;
+}
+.ct_p_a{
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	color:#000000;
+}
+.menber{
+	padding-top:5px;
+	padding-bottom:5px;
+}

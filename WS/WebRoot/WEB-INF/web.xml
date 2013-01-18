@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <servlet>
+    <servlet-name>XFireServlet</servlet-name>
+    <servlet-class>org.codehaus.xfire.transport.http.XFireConfigurableServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XFireServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+   <servlet-name>StartWSHandler</servlet-name>
+   <servlet-class>com.cleartraders.ws.StartWSHandler</servlet-class>
+   <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+   <servlet-name>StartQuoteEngineMgrHandler</servlet-name>
+   <servlet-class>com.cleartraders.signalframe.strategy.StartStrategyMgrHandler</servlet-class>
+   <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DataServiceServlet</servlet-name>
+    <servlet-class>com.cleartraders.ws.DataServiceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AutoTraderControlServlet</servlet-name>
+    <servlet-class>com.cleartraders.autotrader.AutoTraderControlServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+   <servlet-name>StartWSHandler</servlet-name>
+   <url-pattern>/startwshandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DataServiceServlet</servlet-name>
+    <url-pattern>/DataServiceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AutoTraderControlServlet</servlet-name>
+    <url-pattern>/AutoTraderControlServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
+

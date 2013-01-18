@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="userLoginForm" type="com.cleartraders.webapp.controller.form.UserLoginForm" />
+    <form-bean name="ChangePWDForm" type="com.cleartraders.webapp.controller.form.ChangePWDForm" />
+    <form-bean name="ContactsForm" type="com.cleartraders.webapp.controller.form.ContactsForm" />
+    <form-bean name="updateMySignalForm" type="com.cleartraders.webapp.controller.form.UpdateMySignalForm" />
+    <form-bean name="updateTradingPreferenceForm" type="com.cleartraders.webapp.controller.form.UpdateTradingPreperenceForm" />
+    <form-bean name="selectMarketForm" type="com.cleartraders.webapp.controller.form.SelectMarketForm" />
+    <form-bean name="updateMyAnalysisConditionForm" type="com.cleartraders.webapp.controller.form.UpdateMyAnalysisConditionForm" />
+    <form-bean name="ChangeAutoTradeStatusForm" type="com.cleartraders.webapp.controller.form.ChangeAutoTradeStatusForm" />
+    <form-bean name="UserRegisterForm" type="com.cleartraders.webapp.controller.form.UserRegisterForm" />
+    <form-bean name="changeMembershipForm" type="com.cleartraders.webapp.controller.form.ChangeMembershipForm" />
+    <form-bean name="enquiryForm" type="com.cleartraders.webapp.controller.form.EnquiryForm" />
+    <form-bean name="tellAFriendForm" type="com.cleartraders.webapp.controller.form.TellAFriendForm" />
+    <form-bean name="changeSubscriptionForm" type="com.cleartraders.webapp.controller.form.ChangeSubscriptionForm" />
+    <form-bean name="buySMSCreditsForm" type="com.cleartraders.webapp.controller.form.BuySMSCreditsForm" />
+    <form-bean name="getPasswordForm" type="com.cleartraders.webapp.controller.form.GetPasswordForm" />
+    <form-bean name="changeAlertForm" type="com.cleartraders.webapp.controller.form.ChangeAlertForm" />
+    <form-bean name="sortSignalForm" type="com.cleartraders.webapp.controller.form.SortSignalForm" />
+    <form-bean name="addSignalForm" type="com.cleartraders.webapp.controller.form.AddSignalForm" />
+    <form-bean name="delSignalForm" type="com.cleartraders.webapp.controller.form.DelSignalForm" />
+    <form-bean name="editSignalForm" type="com.cleartraders.webapp.controller.form.EditSignalForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards>
+  	<forward name="index" path="/login/userLogin.jsp"></forward>
+  	<forward name="logoff" path="/logout/userLogoff.do"></forward>
+  	
+  	<forward name="getAllCharts" path="/charts/getAllCharts.do"></forward>  
+  	
+  	<forward name="signalList" path="/signals/signalList.do"></forward>  	
+  	<forward name="signalGraphicList" path="/signals/signalGraphicList.do"></forward>
+  	
+  	<forward name="getAnalysis" path="/analysis/getAnalysis.do"></forward>
+  	<forward name="getProfit" path="/analysis/getProfit.do"></forward>
+  	<forward name="getTradingStats" path="/analysis/getTradingStats.do"></forward>
+  	<forward name="getCumulativeProfit" path="/analysis/getCumulativeProfit.do"></forward>
+  	
+  	<forward name="getStrategy" path="/myaccount/getStrategy.do"></forward>
+  	<forward name="getMySignals" path="/myaccount/getMySignals.do"></forward>
+  	<forward name="getAnalysisMarket" path="/analysis/getAnalysisMarket.do"></forward>
+  	<forward name="getContacts" path="/myaccount/getContacts.do"></forward>  
+  	<forward name="getPasswordInfo" path="/myaccount/getPasswordInfo.do"></forward>	
+  	<forward name="getUserPreference" path="/myaccount/getUserPreference.do"></forward>
+  	<forward name="getSMSCredits" path="/myaccount/getSmsCredits.do"></forward>
+  	<forward name="getMymembership" path="/myaccount/getMymembership.do"></forward>
+  	<forward name="getAllMarketType" path="/myaccount/getAllMarketType.do"></forward>
+  		  	
+  	<forward name="getAutoTrade" path="/autotrade/getAutoTrade.do"></forward>
+  </global-forwards>
+  <action-mappings >
+    <action
+      attribute="userLoginForm"
+      input="/login/userLogin.jsp"
+      name="userLoginForm"
+      path="/login/userLogin"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UserLoginAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/signal/signals.jsp" />
+      <forward name="sessionended" path= "/login/userLogin.jsp" />
+    </action>
+    <action 
+      path="/logout/userLogoff"
+      type="com.cleartraders.webapp.controller.action.UserLogoffAction">
+      <forward name="successful" path="/logout/logoffCache.jsp" />
+    </action>
+    <action
+      input="/signals/listview.jsp"
+      path="/signals/signalList"
+      type="com.cleartraders.webapp.controller.action.SignalsListAction"
+      validate="false">
+      <forward name="successful" path="/signals/signals.jsp" />
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="sessionended" path= "/login/userLogin.jsp" />
+    </action>
+    <action
+      input="/signals/graphicview.jsp"
+      path="/signals/signalGraphicList"
+      type="com.cleartraders.webapp.controller.action.SignalsListAction"
+      validate="false">
+      <forward name="successful" path="/signals/graphicview.jsp" />
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="sessionended" path= "/login/userLogin.jsp" />
+    </action>
+    <action
+      attribute="ChangePWDForm"
+      name="ChangePWDForm"
+      path="/myaccount/changepwd"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.ChangePWDAction">
+      <forward name="failed" path="/myaccount/changepwd.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/changepwd.jsp" />
+    </action>
+    <action
+      attribute="buySMSCreditsForm"
+      input="/myaccount/smscredits.jsp"
+      name="buySMSCreditsForm"
+      path="/myaccount/buySMSCredits"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.BuySMSCreditsAction" >
+      <forward name="failed" path="/signal/signals.jsp" />
+      <forward name="successful_paid" path="/payment/paypalSubscription.jsp" />
+    </action>
+    <action
+      attribute="changeMembershipForm"
+      name="changeMembershipForm"
+      path="/myaccount/changeMembership"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.ChangeMembershipAction">
+      <forward name="failed" path="/myaccount/mymembership.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="upgrade" path="/payment/upgradeSubscription.jsp" />
+      <forward name="cancel" path="/payment/cancelSubscription.jsp" />
+      <forward name="subscrible" path="/payment/paypalSubscription.jsp" />
+    </action>
+    <action
+      attribute="ContactsForm"
+      name="ContactsForm"
+      path="/myaccount/updateContacts"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateContactsAction">
+      <forward name="failed" path="/signal/signals.jsp" redirect="true" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/signal/signals.jsp" redirect="true" />
+    </action>
+    <action path="/myaccount/getContacts" type="com.cleartraders.webapp.controller.action.GetContactsAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/signal/my-account.jsp" />
+    </action>    
+    <action path="/myaccount/getPasswordInfo" type="com.cleartraders.webapp.controller.action.GetPasswordInfoAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/changepwd.jsp" />
+    </action>
+    <action path="/myaccount/getStrategy" type="com.cleartraders.webapp.controller.action.MySignalsAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/mystrategies.jsp" />
+    </action>
+    <action path="/myaccount/getMymembership" type="com.cleartraders.webapp.controller.action.MyMembershipAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/mymembership.jsp" />
+    </action>
+    <action path="/myaccount/getSmsCredits" type="com.cleartraders.webapp.controller.action.GetSmsCreditsAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/signal/alert-credits.jsp" />
+    </action>
+    <action path="/myaccount/getUserPreference" type="com.cleartraders.webapp.controller.action.GetUserPreference">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/preferences.jsp" />
+    </action>
+    <action path="/myaccount/getAllMarketType" type="com.cleartraders.webapp.controller.action.GetAllMarketTypeAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/selector.jsp" />
+    </action>    
+    <action path="/autotrade/getAutoTrade" type="com.cleartraders.webapp.controller.action.GetAutoTrade">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/autotrade/autotrade.jsp" />
+    </action>    
+    <action 
+      attribute="ChangeAutoTradeStatusForm"
+      name="ChangeAutoTradeStatusForm"
+      path="/autotrade/changeAutoTradeStatus" 
+      type="com.cleartraders.webapp.controller.action.ChangeAutoTradeStatus">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/autotrade/autotrade.jsp" />
+      <forward name="failed" path="/autotrade/autotrade.jsp" />
+    </action>
+    <action path="/analysis/getAnalysisMarket" type="com.cleartraders.webapp.controller.action.GetAnalysisMarketAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/analysis/selector.jsp" />
+    </action>
+    <action path="/charts/getAllCharts" type="com.cleartraders.webapp.controller.action.GetAllChartsAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/charts/charts.jsp" />
+    </action>
+    <action path="/analysis/getAnalysis" type="com.cleartraders.webapp.controller.action.GetDashbordAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/analysis/analysis.jsp" />
+      <forward name="add_analysis" path="/analysis/add-analysis.jsp" />
+    </action>
+    <action path="/analysis/getProfit" type="com.cleartraders.webapp.controller.action.GetProfitAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/analysis/profitloss.jsp" />
+    </action>
+    <action path="/analysis/getTradingStats" type="com.cleartraders.webapp.controller.action.GetTradingStatsAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/analysis/statistics.jsp" />
+    </action>
+    <action path="/analysis/getCumulativeProfit" type="com.cleartraders.webapp.controller.action.GetCumulativeProfitAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/analysis/cumulativeprofit.jsp" />
+    </action>
+    <action path="/analysis/generateChartImage" type="com.cleartraders.webapp.controller.action.GenerateChartImageAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful_one" path="/analysis/cumulativeprofit.jsp" />
+      <forward name="successful_two" path="/analysis/profitloss.jsp" />
+    </action>   
+    <action path="/analysis/tradingStatistics" type="com.cleartraders.webapp.controller.action.TradingStatisticsAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/analysis/statistics.jsp" />
+    </action> 
+    <action path="/analysis/updateUserSessionAttribute" type="com.cleartraders.webapp.controller.action.UpdateUserSessionAttributeAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+    </action> 
+    <action
+      attribute="updateMySignalForm"
+      name="updateMySignalForm"
+      path="/myaccount/updateMySignal"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateMySignalAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/mysignals.jsp" />
+      <forward name="failed" path="/login/userLogin.jsp" />
+    </action>
+    <action
+      attribute="updateTradingPreferenceForm"
+      name="updateTradingPreferenceForm"
+      path="/myaccount/updateTradingPreference"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateTradingPreference">
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/myaccount/preferences.jsp" />
+    </action>
+    <action
+      attribute="selectMarketForm"
+      name="selectMarketForm"
+      path="/myaccount/selectMarket"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.SelectMarketAction">
+      <forward name="failed" path="/myaccount/selector.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/result.jsp" />
+    </action>
+    <action 
+      path="/myaccount/updateMyMarketTimeframe"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateMyMarketTimeframeAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+    </action>
+    <action 
+      path="/myaccount/updateMyMarketSettings"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateMyMarketSettingsAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+    </action>
+    <action
+      attribute="selectMarketForm"
+      name="selectMarketForm"
+      path="/analysis/selectUserAnalysisMarket"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.SelectUserAnalysisMarketAction">
+      <forward name="failed" path="/analysis/selector.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/result.jsp" />
+     </action>
+     <action
+      attribute="updateMyAnalysisConditionForm"
+      name="updateMyAnalysisConditionForm"
+      path="/analysis/updateUserAnalysisMarket"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateMyAnalysisConditionAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+      <forward name="cumulative" path="/analysis/cumulativeprofit.jsp" />
+      <forward name="dashboard" path="/analysis/dashboard.jsp" />
+      <forward name="profitloss" path="/analysis/profitloss.jsp" />
+      <forward name="statistics" path="/analysis/statistics.jsp" />
+     </action>
+     <action 
+      path="/analysis/updateMyAnalysisDateCondition"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateMyAnalysisDateConditionAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+     </action>
+     <action 
+      path="/analysis/updateMyAnalysisActiveCondition"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateMyAnalysisActiveConditionAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+     </action>
+     <action 
+      path="/analysis/updateAnalysisMarketTimeframe"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.UpdateAnalysisMarketTimeframeAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+    </action>   
+    <action 
+      input="/signup-form.jsp"
+      name="UserRegisterForm"
+      path="/userRegisterAction" 
+      type="com.cleartraders.webapp.controller.action.UserRegisterAction">
+      <forward name="failed" path="/signup-form.jsp" />
+      <forward name="successful_paid" path="/payment/paypalSubscription.jsp" />
+      <forward name="successful_free" path="http://signals.cleartraders.com/signup-confirm.html" />
+    </action>    
+    <action path="/signup/signupRegisterConfirm" type="com.cleartraders.webapp.controller.action.SignupRegisterConfirmAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="successful" path="http://signals.cleartraders.com/activated-login.jsp" />
+    </action>    
+    <action path="/confirmResetPassword" type="com.cleartraders.webapp.controller.action.ConfirmResetPasswordAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/login/userLogin.jsp" />
+    </action>
+    <action path="/reloadDataCacheAction" type="com.cleartraders.webapp.controller.action.ReloadDataCacheAction" />
+    <!-- Why so far forward for /paypal/paypalPDTCallback action? Since system need place Google analysis script into thses pages to track -->
+    <action path="/paypal/paypalPDTCallback" type="com.cleartraders.webapp.controller.action.PaypalPDTCallbackAction">
+      <forward name="failed" path="/login/userLogin.jsp" />
+      <forward name="login" path="/login/userLogin.jsp" />
+      <forward name="successful" path="/charts/charts.jsp" />
+      <forward name="50sms" path="http://signals.cleartraders.com/confirm/50-credits.html" />
+      <forward name="250sms" path="http://signals.cleartraders.com/confirm/250-credits.html" />
+      <forward name="500sms" path="http://signals.cleartraders.com/confirm/500-credits.html" />
+      <forward name="1000sms" path="http://signals.cleartraders.com/confirm/1000-credits.html" />
+      <forward name="5000sms" path="http://signals.cleartraders.com/confirm/5000-credits.html" />
+      <forward name="specialist" path="http://signals.cleartraders.com/confirm/specialist.html" />
+      <forward name="expert" path="http://signals.cleartraders.com/confirm/expert.html" />
+      <forward name="master" path="http://signals.cleartraders.com/confirm/master.html" />
+    </action>
+    <action path="/paypal/paypalIPNCallback" type="com.cleartraders.webapp.controller.action.PaypalIPNCallbackAction" />
+    <action
+      attribute="enquiryForm"
+      input="/contact-us.jsp"
+      name="enquiryForm"
+      path="/enquiryAction"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.EnquiryAction" >
+      <forward name="failed" path="/contact-us.jsp" />
+      <forward name="successful" path="/contact-us-confirm.html" />
+    </action>
+    <action
+      attribute="tellAFriendForm"
+      input="/tell-a-friend.jsp"
+      name="tellAFriendForm"
+      path="/tellAFriend"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.TellAFriendAction">
+      <forward name="failed" path="/tell-a-friend.jsp" />
+      <forward name="successful" path="/contact-us-confirm.html" />
+    </action>
+    <action
+      attribute="changeSubscriptionForm"
+      input="/change-subscription.jsp"
+      name="changeSubscriptionForm"
+      path="/changeSubscription"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.ChangeSubscriptionAction" >
+      <forward name="failed" path="/change-subscription.jsp" />
+      <forward name="upgrade" path="/payment/upgradeSubscription.jsp" />
+      <forward name="cancel" path="/payment/cancelSubscription.jsp" />
+      <forward name="subscrible" path="/payment/paypalSubscription.jsp" />
+    </action>
+    <action
+      attribute="getPasswordForm"
+      input="/get-password.jsp"
+      name="getPasswordForm"
+      path="/getPassword"
+      scope="request"
+      type="com.cleartraders.webapp.controller.action.GetPasswordAction">   
+      <forward name="failed" path="/get-password.jsp" />
+      <forward name="successful" path="/password-confirm.html" />
+    </action>
+    <action path="/strategy/getStrategyByID" type="com.cleartraders.webapp.controller.action.GetStrategyByIDAction">
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+    </action>
+    <action path="/myaccount/updateMyMarketStrategy" type="com.cleartraders.webapp.controller.action.UpdateMyMarketStrategyAction">
+    	<forward name="sessionended" path="/login/userLogin.jsp" />
+    </action>
+    <action path="/charts/getLatestTimeframeSignals" type="com.cleartraders.webapp.controller.action.GetLatestTimeframeSignalsAction">
+    	<forward name="sessionended" path="/login/userLogin.jsp" />
+    </action>
+    <action path="/getTop20Trade" type="com.cleartraders.webapp.controller.action.GetTop20TradeAction" />
+    <action attribute="changeAlertForm" path="/myaccount/changeAlert" name="changeAlertForm" scope="request" type="com.cleartraders.webapp.controller.action.ChangeAlertAction" />
+    <action attribute="sortSignalForm" name="sortSignalForm" path="/signal/sortSignals" scope="request" type="com.cleartraders.webapp.controller.action.SortSignalsAction" >
+      <forward name="successful" path="/signal/signals.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+    </action>
+    <action attribute="addSignalForm" name="addSignalForm"  path="/signal/addSignal" type="com.cleartraders.webapp.controller.action.AddSignalAction" >
+      <forward name="successful" path="/signal/signals.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+    </action>
+    <action attribute="delSignalForm" name="delSignalForm"  path="/signal/delSignal" type="com.cleartraders.webapp.controller.action.DelSignalAction">
+      <forward name="successful" path="/signal/signals.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+    </action>
+    <action attribute="editSignalForm" name="editSignalForm"  path="/signal/editSignal" type="com.cleartraders.webapp.controller.action.EditSignalAction">
+      <forward name="successful" path="/signal/signals.jsp" />
+      <forward name="sessionended" path="/login/userLogin.jsp" />
+    </action>
+  </action-mappings>
+
+  <message-resources parameter="com.cleartraders.webapp.controller.ApplicationResources" />
+</struts-config>
+
